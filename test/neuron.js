@@ -24,7 +24,7 @@ exports['set input and get output'] = function (test) {
     test.equal(neuron.output(), 1);
 };
 
-exports['two inputs with on value chained'] = function (test) {
+exports['two inputs'] = function (test) {
     var input1 = sn.neuron();
     var input2 = sn.neuron();
     var neuron = sn.neuron();
@@ -34,4 +34,16 @@ exports['two inputs with on value chained'] = function (test) {
     input1.output(0.5);
     input2.output(0.5);
     test.equal(neuron.output(), 1);
+};
+
+exports['two inputs with weights'] = function (test) {
+    var input1 = sn.neuron();
+    var input2 = sn.neuron();
+    var neuron = sn.neuron();
+    
+    neuron.input(input1, 0.5);
+    neuron.input(input2, -0.5);
+    input1.output(1);
+    input2.output(1);
+    test.equal(neuron.output(), 0);
 };

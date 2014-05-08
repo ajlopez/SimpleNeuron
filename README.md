@@ -42,6 +42,9 @@ TBD
 MIT
 
 ## References
+
+TBD
+
 ## Contribution
 
 Feel free to [file issues](https://github.com/ajlopez/SimpleNeuron) and submit

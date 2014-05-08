@@ -18,6 +18,58 @@ Reference in your program:
 var sn = require('simpleneuron');
 ```
 
+Create a neuron
+```js
+var neuron = sn.neuron();
+```
+It is a simple threshold neuron with trigger value = 1.
+
+Connect a neuron with other neuron
+```js
+var neuron = sn.neuron();
+var input = sn.neuron();
+neuron.input(input);
+```
+The input has weight 1
+
+Connect a neuron with other neuron using a weight value
+```js
+var neuron = sn.neuron();
+var input = sn.neuron();
+neuron.input(input, -0.5);
+```
+The input has weight -0.5.
+
+Set the output value of neuron:
+```js
+neuron.output(1);
+```
+Usually, this method is used to set the initial neuron layer values.
+
+Get the output value of a neuron:
+```js
+var result = neuron.output();
+```
+
+Create a network of neurons, with three layers, containing 4, 15, 3 neurons. The weights
+are random values between -1 and 1:
+```js
+var network = ss.network([4, 15, 3]);
+```
+
+Get the number of neurons in a network:
+```js
+var count = network.neurons();
+```
+In the previous created network, the count is 4+15+3 == 22.
+
+Get the number of neurons in a layer:
+```js
+var count0 = network.neurons(0); // 4
+var count1 = network.neurons(1); // 15
+var count2 = network.neurons(2); // 3
+```
+
 TBD
 
 ## Development

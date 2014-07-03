@@ -95,7 +95,7 @@ MIT
 
 ## References
 
-TBD
+- [Extreme Learning Machine](http://fastml.com/extreme-learning-machines/)
 
 ## Contribution
 

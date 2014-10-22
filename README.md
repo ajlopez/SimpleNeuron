@@ -96,6 +96,8 @@ MIT
 ## References
 
 - [Extreme Learning Machine](http://fastml.com/extreme-learning-machines/)
+- [Backpropagation](http://en.wikipedia.org/wiki/Backpropagation)
+- [How the backpropagation algorithm works](http://neuralnetworksanddeeplearning.com/chap2.html)
 
 ## Contribution
 

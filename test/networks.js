@@ -34,9 +34,9 @@ exports['create network first layer are direct neurons'] = function (test) {
   
     for (var k = 0; k < 4; k++) {
         var neuron = network.neuron(0, k);
-        neuron.output(-1);
+        neuron.value(-1);
         test.equal(neuron.output(), -1);
-        neuron.output(1);
+        neuron.value(1);
         test.equal(neuron.output(), 1);
     }
 };

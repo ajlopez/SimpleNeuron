@@ -19,7 +19,7 @@ exports['set input and get output'] = function (test) {
     var input = sn.neuron();
     
     neuron.input(input);
-    input.output(1);
+    input.value(1);
     
     test.equal(neuron.output(), 1);
 };
@@ -31,8 +31,8 @@ exports['two inputs'] = function (test) {
     
     neuron.input(input1);
     neuron.input(input2);
-    input1.output(0.5);
-    input2.output(0.5);
+    input1.value(0.5);
+    input2.value(0.5);
     test.equal(neuron.output(), 1);
 };
 
@@ -43,7 +43,7 @@ exports['two inputs with weights'] = function (test) {
     
     neuron.input(input1, 0.5);
     neuron.input(input2, -0.5);
-    input1.output(1);
-    input2.output(1);
+    input1.value(1);
+    input2.value(1);
     test.equal(neuron.output(), 0);
 };

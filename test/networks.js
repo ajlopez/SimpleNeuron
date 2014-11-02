@@ -53,3 +53,17 @@ exports['create and evaluate network'] = function (test) {
     for (var k = 0; k < 5; k++)
         test.equal(network.neuron(2, k).output(), outputs[k]);
 };
+
+exports['create and train network'] = function (test) {
+    var network = sn.network([4, 10, 2]);
+    
+    var outputs = network.outputs([1, 1, 1, 1]);
+    console.dir(outputs);
+    
+    for (var k = 0; k < 10; k++) {
+        network.train([1, 1, 1, 1], [1, 0], 0.1);
+        var newoutputs = network.outputs([1, 1, 1, 1]);
+    
+        console.dir(newoutputs);
+    }
+};

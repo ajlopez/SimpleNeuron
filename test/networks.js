@@ -40,3 +40,16 @@ exports['create network first layer are direct neurons'] = function (test) {
         test.equal(neuron.output(), 1);
     }
 };
+
+exports['create and evaluate network'] = function (test) {
+    var network = sn.network([4, 6, 5]);
+    
+    var outputs = network.outputs([1, 1, 1, 1]);
+    
+    test.ok(outputs);
+    test.ok(Array.isArray(outputs));
+    test.equal(outputs.length, 5);
+    
+    for (var k = 0; k < 5; k++)
+        test.equal(network.neuron(2, k).output(), outputs[k]);
+};

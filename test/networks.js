@@ -36,8 +36,8 @@ exports['create network first layer are direct neurons'] = function (test) {
         var neuron = network.neuron(0, k);
         neuron.value(-1);
         test.equal(neuron.output(), -1);
-        neuron.value(1);
-        test.equal(neuron.output(), 1);
+        neuron.value(0.5);
+        test.equal(neuron.output(), 0.5);
     }
 };
 
@@ -60,9 +60,23 @@ exports['create and train network'] = function (test) {
     var outputs = network.outputs([1, 1, 1, 1]);
     console.dir(outputs);
     
-    for (var k = 0; k < 10; k++) {
+    for (var k = 0; k < 20; k++) {
         network.train([1, 1, 1, 1], [1, 0], 0.1);
         var newoutputs = network.outputs([1, 1, 1, 1]);
+    
+        console.dir(newoutputs);
+    }
+};
+
+exports['create and train network 2'] = function (test) {
+    var network = sn.network([6, 10, 3]);
+    
+    var outputs = network.outputs([0, 0, 1, 1, 0, 0]);
+    console.dir(outputs);
+    
+    for (var k = 0; k < 20; k++) {
+        network.train([0, 0, 1, 1, 0, 0], [0, 1, 0], 0.1);
+        var newoutputs = network.outputs([0, 0, 1, 1, 0, 0]);
     
         console.dir(newoutputs);
     }

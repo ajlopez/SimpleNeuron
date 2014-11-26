@@ -6,27 +6,93 @@
 <body>
 <h1>Digits</h1>
 
+<div>
+<button onclick="newnetwork()">New Network</button>
+<button onclick="trainnetwork(1)">Train Network</button>
+<button onclick="trainnetwork(10)">Train Network 10 Times</button>
+<button onclick="trainnetwork(100)">Train Network 100 Times</button>
+</div>
+
 <div style="float:left; margin-left: 20px">
 <canvas id="canvaszero0" width="100" height="100">
 </canvas>
+<div id="resultzero0">
+</div>
 </div>
 
 <div style="float:left; margin-left: 20px">
 <canvas id="canvaszero1" width="100" height="100">
 </canvas>
+<div id="resultzero1">
+</div>
 </div>
 
 <div style="float:left; margin-left: 20px">
 <canvas id="canvasone0" width="100" height="100">
 </canvas>
+<div id="resultone0">
+</div>
 </div>
 
 <div style="float:left; margin-left: 20px">
 <canvas id="canvasone1" width="100" height="100">
 </canvas>
+<div id="resultone1">
+</div>
+</div>
+
+<div style="float:left; margin-left: 20px">
+<canvas id="canvastwo0" width="100" height="100">
+</canvas>
+<div id="resulttwo0">
+</div>
+</div>
+
+<div style="float:left; margin-left: 20px">
+<canvas id="canvastwo1" width="100" height="100">
+</canvas>
+<div id="resulttwo1">
+</div>
 </div>
 
 <script>
+
+var network;
+
+function newnetwork() {
+    network = simpleneuron.network([25, 50, 3]);
+    showresults();
+}
+
+function showresults() {
+    showresult(network.outputs(zero0), "zero0");
+    showresult(network.outputs(zero1), "zero1");
+    showresult(network.outputs(one0), "one0");
+    showresult(network.outputs(one1), "one1");
+    showresult(network.outputs(two0), "two0");
+    showresult(network.outputs(two1), "two1");
+}
+
+function trainnetwork(ntimes) {
+    for (var k = 0; k < ntimes; k++) {
+        network.train(zero0, [1, 0, 0], 0.01);
+        network.train(zero1, [1, 0, 0], 0.01);
+        network.train(one0, [0, 1, 0], 0.01);
+        network.train(one1, [0, 1, 0], 0.01);
+        network.train(two0, [0, 0, 1], 0.01);
+        network.train(two1, [0, 0, 1], 0.01);
+    }
+    
+    showresults();
+}
+
+function showresult(outputs, name) {
+    var results = document.getElementById("result" + name);
+    var result = "Zero: " + outputs[0] + "<br/>";
+    result += "One: " + outputs[1] + "<br/>";
+    result += "Two: " + outputs[2] + "<br/>";
+    results.innerHTML = result;
+}
 
 var zero0 = [
     1, 1, 1, 1, 1,
@@ -60,6 +126,22 @@ var one1 = [
     0, 1, 1, 1, 0
 ];
 
+var two0 = [
+    1, 1, 1, 1, 1,
+    0, 0, 0, 0, 1,
+    1, 1, 1, 1, 1,
+    1, 0, 0, 0, 0,
+    1, 1, 1, 1, 1
+];
+
+var two1 = [
+    1, 1, 1, 1, 1,
+    0, 0, 0, 1, 0,
+    0, 1, 1, 1, 0,
+    0, 1, 0, 0, 0,
+    0, 1, 1, 1, 1
+];
+
 function showdigit(values, width, height, canvas) {
     var cwidth = canvas.width;
     var cheight = canvas.height;
@@ -88,6 +170,8 @@ showdigit(zero0, 5, 5, canvaszero0);
 showdigit(zero1, 5, 5, canvaszero1);
 showdigit(one0, 5, 5, canvasone0);
 showdigit(one1, 5, 5, canvasone1);
+showdigit(two0, 5, 5, canvastwo0);
+showdigit(two1, 5, 5, canvastwo1);
 
 </script>
 </body>

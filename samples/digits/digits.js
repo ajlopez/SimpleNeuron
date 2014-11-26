@@ -15,20 +15,28 @@ var network = sn.network([25, 50, 3]);
 for (var k = 0; k < 300; k++) {
     network.train(zero0, [1, 0, 0], 0.01);
     var newoutput = network.outputs(zero0);
-    console.dir(newoutput);
+    showresult('zero0', newoutput);
     network.train(zero1, [1, 0, 0], 0.01);
     var newoutput = network.outputs(zero1);
-    console.dir(newoutput);
+    showresult('zero1', newoutput);
     network.train(one0, [0, 1, 0], 0.01);
     var newoutput = network.outputs(one0);
-    console.dir(newoutput);
+    showresult('one0', newoutput);
     network.train(one1, [0, 1, 0], 0.01);
     var newoutput = network.outputs(one1);
-    console.dir(newoutput);
+    showresult('one1', newoutput);
     network.train(two0, [0, 0, 1], 0.01);
     var newoutput = network.outputs(two0);
-    console.dir(newoutput);
+    showresult('two0', newoutput);
     network.train(two1, [0, 0, 1], 0.01);
     var newoutput = network.outputs(two1);
-    console.dir(newoutput);
+    showresult('two1', newoutput);
+}
+
+function showresult(name, output) {
+    console.log();
+    console.log(name);
+    console.log('zero:', output[0]);
+    console.log('one :', output[1]);
+    console.log('two :', output[2]);
 }

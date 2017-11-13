@@ -102,6 +102,10 @@ MIT
 - [Using neural nets to recognize handwritten digits](http://neuralnetworksanddeeplearning.com/chap1.html)
 - [THE MNIST DATABASE of handwritten digits](http://yann.lecun.com/exdb/mnist/)
 
+## Books
+
+- Neural Networks, Simon Haykin
+
 ## Contribution
 
 Feel free to [file issues](https://github.com/ajlopez/SimpleNeuron) and submit

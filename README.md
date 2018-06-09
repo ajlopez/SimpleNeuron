@@ -105,6 +105,7 @@ MIT
 ## Books
 
 - Neural Networks, Simon Haykin
+- Fundamentals of Deep Learning, Nikhil Buduma (2017, O’Reilly)
 
 ## Contribution
 

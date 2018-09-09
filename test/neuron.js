@@ -36,6 +36,18 @@ exports['two inputs'] = function (test) {
     test.equal(neuron.output(), 1);
 };
 
+exports['two inputs with bias'] = function (test) {
+    var input1 = sn.neuron();
+    var input2 = sn.neuron();
+    var neuron = sn.neuron({ bias: 2 });
+    
+    neuron.input(input1);
+    neuron.input(input2);
+    input1.value(0.5);
+    input2.value(0.5);
+    test.equal(neuron.output(), 3);
+};
+
 exports['two inputs with weights'] = function (test) {
     var input1 = sn.neuron();
     var input2 = sn.neuron();

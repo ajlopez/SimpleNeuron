@@ -59,3 +59,39 @@ exports['two inputs with weights'] = function (test) {
     input2.value(1);
     test.equal(neuron.output(), 0);
 };
+
+exports['create neuron with default function'] = function (test) {
+    var neuron = sn.neuron();
+    var input = sn.neuron({ fn: 'direct' });
+    
+    neuron.input(input);
+    input.value(1);
+    
+    test.equal(input.value(), 1);
+    test.equal(neuron.value(), 1);
+    test.equal(neuron.output(), 1);
+    
+    input.value(-1);
+    neuron.reset();
+    
+    test.equal(input.value(), -1);
+    test.equal(neuron.value(), -1);
+    test.equal(neuron.output(), 0);
+};
+
+exports['create neuron with direct function'] = function (test) {
+    var neuron = sn.neuron({ fn: 'direct' });
+    var input = sn.neuron({ fn: 'direct' });
+    
+    neuron.input(input);
+    input.value(1);
+    
+    test.equal(neuron.value(), 1);
+    test.equal(neuron.output(), 1);
+    
+    input.value(-1);
+    neuron.reset();
+    
+    test.equal(neuron.value(), -1);
+    test.equal(neuron.output(), -1);
+};

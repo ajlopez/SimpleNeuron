@@ -68,6 +68,29 @@ exports['create and train network'] = function (test) {
     }
 };
 
+exports['create and train network xor function'] = function (test) {
+    var network = sn.network([2, 4, 1]);
+    
+    for (var k = 0; k < 100; k++) {
+        network.train([1, 1], [0], 0.3);
+        network.train([0, 1], [1], 0.3);
+        network.train([1, 0], [1], 0.3);
+        network.train([0, 0], [0], 0.3);
+        
+        if (k % 10 == 9) {
+            console.log();
+            var newoutputs = network.outputs([0, 0]);
+            console.dir(newoutputs);
+            var newoutputs = network.outputs([0, 1]);
+            console.dir(newoutputs);
+            var newoutputs = network.outputs([1, 0]);
+            console.dir(newoutputs);
+            var newoutputs = network.outputs([1, 1]);
+            console.dir(newoutputs);
+        }
+    }
+};
+
 exports['create and train network 2'] = function (test) {
     var network = sn.network([6, 10, 3]);
     

@@ -3,58 +3,61 @@
 <title>Digits</title>
 <script src="../../lib/simpleneuron.js" language="javascript"></script>
 <link href="bootstrap.min.css" rel="stylesheet">
-<link href="bootstrap-theme.min.css" rel="stylesheet">
+<link href="bootstrap-reboot.min.css" rel="stylesheet">
 </head>
 <body>
-<h1>Digits</h1>
+<h1 class="container">Digits</h1>
 
-<div>
-<button onclick="newnetwork()">New Network</button>
-<button onclick="trainnetwork(1)">Train Network</button>
-<button onclick="trainnetwork(10)">Train Network 10 Times</button>
-<button onclick="trainnetwork(100)">Train Network 100 Times</button>
+<div class="container">
+<button class="btn btn-primary" onclick="newnetwork()">New Network</button>
+<button class="btn btn-primary" onclick="trainnetwork(1)">Train Network</button>
+<button class="btn btn-primary" onclick="trainnetwork(10)">Train Network 10 Times</button>
+<button class="btn btn-primary" onclick="trainnetwork(100)">Train Network 100 Times</button>
 </div>
 
-<div style="float:left; margin-left: 20px">
+<div class="container">
+<div style="float:left; margin-top: 20px; margin-left: 20px">
 <canvas id="canvaszero0" width="100" height="100">
 </canvas>
 <div id="resultzero0">
 </div>
 </div>
 
-<div style="float:left; margin-left: 20px">
+<div style="float:left; margin-top: 20px; margin-left: 20px">
 <canvas id="canvaszero1" width="100" height="100">
 </canvas>
 <div id="resultzero1">
 </div>
 </div>
 
-<div style="float:left; margin-left: 20px">
+<div style="float:left; margin-top: 20px; margin-left: 20px">
 <canvas id="canvasone0" width="100" height="100">
 </canvas>
 <div id="resultone0">
 </div>
 </div>
 
-<div style="float:left; margin-left: 20px">
+<div style="float:left; margin-top: 20px; margin-left: 20px">
 <canvas id="canvasone1" width="100" height="100">
 </canvas>
 <div id="resultone1">
 </div>
 </div>
 
-<div style="float:left; margin-left: 20px">
+<div style="float:left; margin-top: 20px; margin-left: 20px">
 <canvas id="canvastwo0" width="100" height="100">
 </canvas>
 <div id="resulttwo0">
 </div>
 </div>
 
-<div style="float:left; margin-left: 20px">
+<div style="float:left; margin-top: 20px; margin-left: 20px">
 <canvas id="canvastwo1" width="100" height="100">
 </canvas>
 <div id="resulttwo1">
 </div>
+</div>
+
 </div>
 
 <script>
@@ -67,12 +70,12 @@ function newnetwork() {
 }
 
 function showresults() {
-    showresult(network.outputs(zero0), "zero0");
-    showresult(network.outputs(zero1), "zero1");
-    showresult(network.outputs(one0), "one0");
-    showresult(network.outputs(one1), "one1");
-    showresult(network.outputs(two0), "two0");
-    showresult(network.outputs(two1), "two1");
+    showresult(network.process(zero0), "zero0");
+    showresult(network.process(zero1), "zero1");
+    showresult(network.process(one0), "one0");
+    showresult(network.process(one1), "one1");
+    showresult(network.process(two0), "two0");
+    showresult(network.process(two1), "two1");
 }
 
 function trainnetwork(ntimes) {

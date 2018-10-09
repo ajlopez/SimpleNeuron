@@ -14,22 +14,22 @@ var network = sn.network([25, 50, 3]);
 
 for (var k = 0; k < 300; k++) {
     network.train(zero0, [1, 0, 0], 0.01);
-    var newoutput = network.outputs(zero0);
+    var newoutput = network.process(zero0);
     showresult('zero0', newoutput);
     network.train(zero1, [1, 0, 0], 0.01);
-    var newoutput = network.outputs(zero1);
+    var newoutput = network.process(zero1);
     showresult('zero1', newoutput);
     network.train(one0, [0, 1, 0], 0.01);
-    var newoutput = network.outputs(one0);
+    var newoutput = network.process(one0);
     showresult('one0', newoutput);
     network.train(one1, [0, 1, 0], 0.01);
-    var newoutput = network.outputs(one1);
+    var newoutput = network.process(one1);
     showresult('one1', newoutput);
     network.train(two0, [0, 0, 1], 0.01);
-    var newoutput = network.outputs(two0);
+    var newoutput = network.process(two0);
     showresult('two0', newoutput);
     network.train(two1, [0, 0, 1], 0.01);
-    var newoutput = network.outputs(two1);
+    var newoutput = network.process(two1);
     showresult('two1', newoutput);
 }
 

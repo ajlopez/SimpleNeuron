@@ -106,6 +106,9 @@ MIT
 
 - Neural Networks, Simon Haykin
 - Fundamentals of Deep Learning, Nikhil Buduma (2017, O’Reilly)
+- Anthony L. Caterini, Dong Eui Chang - Deep Neural Networks in a Mathematical Framework (2018, Springer)
+- Charu C. Aggarwal - Neural Networks and Deep Learning. A Textbook (2018, Springer)
+- Ian Goodfellow, Yoshua Bengio, Aaron Courville - Deep Learning (2016, The MIT Press)
 
 ## Contribution
 

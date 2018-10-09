@@ -44,7 +44,7 @@ exports['create network first layer are direct neurons'] = function (test) {
 exports['create and evaluate network'] = function (test) {
     var network = sn.network([4, 6, 5]);
     
-    var outputs = network.outputs([1, 1, 1, 1]);
+    var outputs = network.process([1, 1, 1, 1]);
     
     test.ok(outputs);
     test.ok(Array.isArray(outputs));
@@ -57,26 +57,49 @@ exports['create and evaluate network'] = function (test) {
 exports['create and train network'] = function (test) {
     var network = sn.network([4, 10, 2]);
     
-    var outputs = network.outputs([1, 1, 1, 1]);
+    var outputs = network.process([1, 1, 1, 1]);
     console.dir(outputs);
     
     for (var k = 0; k < 20; k++) {
         network.train([1, 1, 1, 1], [1, 0], 0.1);
-        var newoutputs = network.outputs([1, 1, 1, 1]);
+        var newoutputs = network.process([1, 1, 1, 1]);
     
         console.dir(newoutputs);
+    }
+};
+
+exports['create and train network xor function'] = function (test) {
+    var network = sn.network([2, 4, 1]);
+    
+    for (var k = 0; k < 100; k++) {
+        network.train([1, 1], [0], 0.3);
+        network.train([0, 1], [1], 0.3);
+        network.train([1, 0], [1], 0.3);
+        network.train([0, 0], [0], 0.3);
+        
+        if (k % 10 == 9) {
+            console.log();
+            var newoutputs = network.process([0, 0]);
+            console.dir(newoutputs);
+            var newoutputs = network.process([0, 1]);
+            console.dir(newoutputs);
+            var newoutputs = network.process([1, 0]);
+            console.dir(newoutputs);
+            var newoutputs = network.process([1, 1]);
+            console.dir(newoutputs);
+        }
     }
 };
 
 exports['create and train network 2'] = function (test) {
     var network = sn.network([6, 10, 3]);
     
-    var outputs = network.outputs([0, 0, 1, 1, 0, 0]);
+    var outputs = network.process([0, 0, 1, 1, 0, 0]);
     console.dir(outputs);
     
     for (var k = 0; k < 20; k++) {
         network.train([0, 0, 1, 1, 0, 0], [0, 1, 0], 0.1);
-        var newoutputs = network.outputs([0, 0, 1, 1, 0, 0]);
+        var newoutputs = network.process([0, 0, 1, 1, 0, 0]);
     
         console.dir(newoutputs);
     }

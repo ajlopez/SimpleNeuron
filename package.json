@@ -1,7 +1,7 @@
 { "name": "simpleneuron"
 , "description": "Simple neural network library for browser and Node.js"
 , "keywords": [ "neuron", "neural network", "library" ]
-, "version": "0.0.1alpha"
+, "version": "0.0.1"
 , "author": "Angel 'Java' Lopez <webmaster@ajlopez.com> (http://www.ajlopez.com)"
 , "repository": { "type": "git", "url": "git://github.com/ajlopez/SimpleNeuron.git" }
 , "main": "./lib/simpleneuron.js"

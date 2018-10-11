@@ -8,10 +8,10 @@ exports['create network'] = function (test) {
     test.equal(typeof network, 'object');
     
     test.equal(network.layers(), 3);
-    test.equal(network.neurons(), 4 + 6 + 5);
-    test.equal(network.neurons(0), 4);
-    test.equal(network.neurons(1), 6);
-    test.equal(network.neurons(2), 5);
+    test.equal(network.size(), 4 + 6 + 5);
+    test.equal(network.size(0), 4);
+    test.equal(network.size(1), 6);
+    test.equal(network.size(2), 5);
     
     for (var k = 0; k < 4; k++)
         for (var j = 4; j < 10; j++) {

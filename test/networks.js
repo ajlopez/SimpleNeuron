@@ -104,3 +104,9 @@ exports['create and train network 2'] = function (test) {
         console.dir(newoutputs);
     }
 };
+
+exports['create simple network with direct function'] = function (test) {
+    var network = sn.network([1, 1], { fn: 'direct' });
+    
+    test.deepEqual(network.process([ 1 ]), [ 1 * network.neuron(1, 0).weight(network.neuron(0, 0)) ]);
+};

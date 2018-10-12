@@ -110,3 +110,9 @@ exports['create simple network with direct function'] = function (test) {
     
     test.deepEqual(network.process([ 1 ]), [ 1 * network.neuron(1, 0).weight(network.neuron(0, 0)) ]);
 };
+
+exports['create simple network with logistic function'] = function (test) {
+    var network = sn.network([1, 1], { fn: 'logistic' });
+    
+    test.deepEqual(network.process([ 0 ]), [ 0.5 ]);
+};

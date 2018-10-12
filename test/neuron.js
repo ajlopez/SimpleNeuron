@@ -104,3 +104,16 @@ exports['create neuron with direct function'] = function (test) {
     test.equal(neuron.value(), -1);
     test.equal(neuron.output(), -1);
 };
+
+exports['create neuron with logistic function'] = function (test) {
+    var neuron = sn.neuron();
+    var input = sn.neuron({ fn: 'logistic' });
+    
+    neuron.input(input);
+    input.value(0);
+    
+    test.equal(input.value(), 0);
+    test.equal(neuron.value(), 0.5);
+    test.equal(neuron.output(), 0.5);
+};
+

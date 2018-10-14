@@ -25,3 +25,18 @@ exports['get layer neurons having relu'] = function (test) {
     }
 };
 
+exports['get layer neurons having direct'] = function (test) {
+    var layer = sn.layer(4, { fn: 'direct' });
+    
+    for (var k = 0; k < 4; k++) {
+        var neuron = layer.neuron(k);
+        
+        test.ok(neuron);
+        test.equal(neuron.output(-1), -1);
+        test.equal(neuron.output(0), 0);
+        test.equal(neuron.output(1), 1);
+        test.equal(neuron.output(2), 2);
+    }
+};
+
+

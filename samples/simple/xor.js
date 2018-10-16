@@ -8,7 +8,7 @@ var trainset = [
     [1, 1], [0],
 ];
 
-var network = simpleneuron.network([2, 8, 1]);
+var network = simpleneuron.network([2, 8, 1], { fn: 'logistic' });
 
 function train(network, lr) {
     for (var k = 0; k < trainset.length; k += 2)

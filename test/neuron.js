@@ -6,6 +6,9 @@ exports['create neuron'] = function (test) {
     
     test.ok(neuron);
     test.equal(typeof neuron, 'object');
+    
+    test.deepEqual(neuron.weights(), []);
+    test.deepEqual(neuron.inputs(), []);
 };
 
 exports['get output'] = function (test) {

@@ -11,6 +11,15 @@ exports['create neuron'] = function (test) {
     test.deepEqual(neuron.inputs(), []);
 };
 
+exports['set neuron weights'] = function (test) {
+    var weights = [ 1, 2, 3 ];
+    var neuron = sn.neuron();
+    
+    neuron.weights(weights);
+
+    test.deepEqual(neuron.weights(), weights);
+};
+
 exports['get output'] = function (test) {
     var neuron = sn.neuron();
     

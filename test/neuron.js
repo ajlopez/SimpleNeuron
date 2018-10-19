@@ -21,7 +21,7 @@ exports['set neuron weights'] = function (test) {
 };
 
 exports['set neuron inputs'] = function (test) {
-    var inputs = [ sn.neuron(), sn.neuron(), sn.neuron()];
+    var inputs = [ sn.neuron(), sn.neuron(), sn.neuron() ];
     var neuron = sn.neuron();
     
     neuron.inputs(inputs);
@@ -54,6 +54,20 @@ exports['two inputs'] = function (test) {
     neuron.input(input2);
     input1.value(0.5);
     input2.value(0.5);
+    test.equal(neuron.output(), 1);
+};
+
+exports['set two inputs and get output'] = function (test) {
+    var input1 = sn.neuron();
+    var input2 = sn.neuron();
+    var neuron = sn.neuron();
+    
+    neuron.inputs([ input1, input2 ]);
+    neuron.weights([ 1, 1 ]);
+
+    input1.value(0.5);
+    input2.value(0.5);
+
     test.equal(neuron.output(), 1);
 };
 

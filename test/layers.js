@@ -43,6 +43,11 @@ exports['connecting two layers'] = function (test) {
         
         test.ok(inputs),
         test.equal(inputs, neurons1);
+        
+        var weights = neurons2[k].weights();
+        
+        test.ok(weights);
+        test.equal(weights.length, neurons1.length);
     }
 };
 

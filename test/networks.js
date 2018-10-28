@@ -14,15 +14,15 @@ exports['create network'] = function (test) {
     test.equal(network.size(2), 5);
     
     for (var k = 0; k < 4; k++)
-        for (var j = 4; j < 10; j++) {
-            test.ok(network.weight(k, j) <= 1);
-            test.ok(network.weight(k, j) >= -1);
+        for (var j = 0; j < 6; j++) {
+            test.ok(network.neuron(1, j).weights()[k] <= 1);
+            test.ok(network.neuron(1, j).weights()[k] >= -1);
         }
     
-    for (var k = 4; k < 10; k++)
-        for (var j = 10; j < 15; j++) {
-            test.ok(network.weight(k, j) <= 1);
-            test.ok(network.weight(k, j) >= -1);
+    for (var k = 0; k < 6; k++)
+        for (var j = 0; j < 5; j++) {
+            test.ok(network.neuron(2, j).weights()[k] <= 1);
+            test.ok(network.neuron(2, j).weights()[k] >= -1);
         }
 };
 
@@ -108,7 +108,7 @@ exports['create and train network 2'] = function (test) {
 exports['create simple network with direct function'] = function (test) {
     var network = sn.network([1, 1], { fn: 'direct' });
     
-    test.deepEqual(network.process([ 1 ]), [ 1 * network.neuron(1, 0).weight(network.neuron(0, 0)) ]);
+    test.deepEqual(network.process([ 1 ]), [ 1 * network.neuron(1, 0).weights()[0] ]);
 };
 
 exports['create simple network with logistic function'] = function (test) {

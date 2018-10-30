@@ -7,8 +7,7 @@ exports['create network'] = function (test) {
     test.ok(network);
     test.equal(typeof network, 'object');
     
-    test.equal(network.layers(), 3);
-    test.equal(network.size(), 4 + 6 + 5);
+    test.equal(network.nlayers(), 3);
     test.equal(network.size(0), 4);
     test.equal(network.size(1), 6);
     test.equal(network.size(2), 5);

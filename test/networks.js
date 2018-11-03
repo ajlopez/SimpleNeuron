@@ -53,6 +53,23 @@ exports['create and evaluate network'] = function (test) {
         test.equal(network.neuron(2, k).output(), outputs[k]);
 };
 
+exports['create and evaluate network adding layers'] = function (test) {
+    var network = sn.network();
+    
+    network.layer(sn.layer(4, { fn: 'direct' }));
+    network.layer(sn.layer(6));
+    network.layer(sn.layer(5));
+    
+    var outputs = network.process([1, 1, 1, 1]);
+    
+    test.ok(outputs);
+    test.ok(Array.isArray(outputs));
+    test.equal(outputs.length, 5);
+    
+    for (var k = 0; k < 5; k++)
+        test.equal(network.neuron(2, k).output(), outputs[k]);
+};
+
 exports['create and train network'] = function (test) {
     var network = sn.network([4, 10, 2]);
     

@@ -84,6 +84,24 @@ exports['create and train network'] = function (test) {
     }
 };
 
+exports['create network with layers and train it'] = function (test) {
+    var network = sn.network();
+    
+    network.layer(sn.layer(4, { fn: 'direct' }));
+    network.layer(sn.layer(10));
+    network.layer(sn.layer(2));
+
+    var outputs = network.process([1, 1, 1, 1]);
+    console.dir(outputs);
+    
+    for (var k = 0; k < 20; k++) {
+        network.train([1, 1, 1, 1], [1, 0], 0.1);
+        var newoutputs = network.process([1, 1, 1, 1]);
+    
+        console.dir(newoutputs);
+    }
+};
+
 exports['create and train network xor function'] = function (test) {
     var network = sn.network([2, 4, 1]);
     

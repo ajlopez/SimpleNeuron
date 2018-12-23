@@ -101,6 +101,7 @@ MIT
 - [How the backpropagation algorithm works](http://neuralnetworksanddeeplearning.com/chap2.html)
 - [Using neural nets to recognize handwritten digits](http://neuralnetworksanddeeplearning.com/chap1.html)
 - [THE MNIST DATABASE of handwritten digits](http://yann.lecun.com/exdb/mnist/)
+- [Neural networks in JavaScript](https://scrimba.com/g/gneuralnetworks)
 
 ## Books
 

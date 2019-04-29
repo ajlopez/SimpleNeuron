@@ -1,8 +1,8 @@
 
-var sn = require('..');
+const sn = require('..');
 
 exports['create layer with one dimension'] = function (test) {
-    var layer = sn.layer(4);
+    const layer = sn.layer(4);
     
     test.ok(layer);
     test.equal(typeof layer, 'object');
@@ -12,10 +12,10 @@ exports['create layer with one dimension'] = function (test) {
 };
 
 exports['get layer neurons having relu'] = function (test) {
-    var layer = sn.layer(4);
+    const layer = sn.layer(4);
     
     for (var k = 0; k < 4; k++) {
-        var neuron = layer.neuron(k);
+        const neuron = layer.neuron(k);
         
         test.ok(neuron);
         test.equal(neuron.output(-1), 0);
@@ -26,25 +26,25 @@ exports['get layer neurons having relu'] = function (test) {
 };
 
 exports['connecting two layers'] = function (test) {
-    var layer1 = sn.layer(2);
-    var layer2 = sn.layer(4);
+    const layer1 = sn.layer(2);
+    const layer2 = sn.layer(4);
     
     layer2.over(layer1);
 
-    var neurons1 = layer1.neurons();
-    var neurons2 = layer2.neurons();
+    const neurons1 = layer1.neurons();
+    const neurons2 = layer2.neurons();
     
     test.ok(neurons1);
     test.equal(neurons1.length, 2);
     test.equal(neurons2.length, 4);
     
-    for (var k = 0; k < 4; k++) {
-        var inputs = neurons2[k].inputs();
+    for (let k = 0; k < 4; k++) {
+        const inputs = neurons2[k].inputs();
         
         test.ok(inputs),
         test.equal(inputs, neurons1);
         
-        var weights = neurons2[k].weights();
+        const weights = neurons2[k].weights();
         
         test.ok(weights);
         test.equal(weights.length, neurons1.length);
@@ -52,9 +52,9 @@ exports['connecting two layers'] = function (test) {
 };
 
 exports['get layer neurons having direct'] = function (test) {
-    var layer = sn.layer(4, { fn: 'direct' });
+    const layer = sn.layer(4, { fn: 'direct' });
     
-    for (var k = 0; k < 4; k++) {
+    for (let k = 0; k < 4; k++) {
         var neuron = layer.neuron(k);
         
         test.ok(neuron);

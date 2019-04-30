@@ -1,5 +1,5 @@
 
-var values = require('../lib/values');
+const values = require('../lib/values');
 
 exports['one values from string'] = function (test) {
     test.deepEqual(values('***'), [1, 1, 1]);

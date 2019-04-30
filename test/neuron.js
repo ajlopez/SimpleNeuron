@@ -1,8 +1,8 @@
 
-var sn = require('..');
+const sn = require('..');
 
 exports['create neuron'] = function (test) {
-    var neuron = sn.neuron();
+    const neuron = sn.neuron();
     
     test.ok(neuron);
     test.equal(typeof neuron, 'object');
@@ -12,8 +12,8 @@ exports['create neuron'] = function (test) {
 };
 
 exports['set neuron weights'] = function (test) {
-    var weights = [ 1, 2, 3 ];
-    var neuron = sn.neuron();
+    const weights = [ 1, 2, 3 ];
+    const neuron = sn.neuron();
     
     neuron.weights(weights);
 
@@ -21,8 +21,8 @@ exports['set neuron weights'] = function (test) {
 };
 
 exports['set neuron inputs'] = function (test) {
-    var inputs = [ sn.neuron(), sn.neuron(), sn.neuron() ];
-    var neuron = sn.neuron();
+    const inputs = [ sn.neuron(), sn.neuron(), sn.neuron() ];
+    const neuron = sn.neuron();
     
     neuron.inputs(inputs);
 
@@ -30,14 +30,14 @@ exports['set neuron inputs'] = function (test) {
 };
 
 exports['get output'] = function (test) {
-    var neuron = sn.neuron();
+    const neuron = sn.neuron();
     
     test.equal(neuron.output(), 0);
 };
 
 exports['set input and get output'] = function (test) {
-    var neuron = sn.neuron();
-    var input = sn.neuron();
+    const neuron = sn.neuron();
+    const input = sn.neuron();
     
     neuron.inputs([input]);
     neuron.weights([1]);
@@ -47,9 +47,9 @@ exports['set input and get output'] = function (test) {
 };
 
 exports['two inputs'] = function (test) {
-    var input1 = sn.neuron();
-    var input2 = sn.neuron();
-    var neuron = sn.neuron();
+    const input1 = sn.neuron();
+    const input2 = sn.neuron();
+    const neuron = sn.neuron();
     
     neuron.inputs([input1, input2]);
     neuron.weights([1, 1]);
@@ -59,9 +59,9 @@ exports['two inputs'] = function (test) {
 };
 
 exports['set two inputs and get output'] = function (test) {
-    var input1 = sn.neuron();
-    var input2 = sn.neuron();
-    var neuron = sn.neuron();
+    const input1 = sn.neuron();
+    const input2 = sn.neuron();
+    const neuron = sn.neuron();
     
     neuron.inputs([ input1, input2 ]);
     neuron.weights([ 1, 1 ]);
@@ -73,9 +73,9 @@ exports['set two inputs and get output'] = function (test) {
 };
 
 exports['two inputs with bias'] = function (test) {
-    var input1 = sn.neuron();
-    var input2 = sn.neuron();
-    var neuron = sn.neuron({ bias: 2 });
+    const input1 = sn.neuron();
+    const input2 = sn.neuron();
+    const neuron = sn.neuron({ bias: 2 });
     
     neuron.inputs([input1, input2]);
     neuron.weights([1, 1]);
@@ -86,7 +86,7 @@ exports['two inputs with bias'] = function (test) {
 };
 
 exports['set bias'] = function (test) {
-    var neuron = sn.neuron();
+    const neuron = sn.neuron();
     
     test.equal(neuron.bias(), 0);
     test.equal(neuron.bias(1), 1);
@@ -94,9 +94,9 @@ exports['set bias'] = function (test) {
 };
 
 exports['two inputs with weights'] = function (test) {
-    var input1 = sn.neuron();
-    var input2 = sn.neuron();
-    var neuron = sn.neuron();
+    const input1 = sn.neuron();
+    const input2 = sn.neuron();
+    const neuron = sn.neuron();
     
     neuron.inputs([input1, input2]);
     neuron.weights([ 0.5, -0.5]);
@@ -107,8 +107,8 @@ exports['two inputs with weights'] = function (test) {
 };
 
 exports['create neuron with default function'] = function (test) {
-    var neuron = sn.neuron();
-    var input = sn.neuron({ fn: 'direct' });
+    const neuron = sn.neuron();
+    const input = sn.neuron({ fn: 'direct' });
     
     neuron.inputs([input]);
     neuron.weights([1]);
@@ -127,8 +127,8 @@ exports['create neuron with default function'] = function (test) {
 };
 
 exports['create neuron with direct function'] = function (test) {
-    var neuron = sn.neuron({ fn: 'direct' });
-    var input = sn.neuron({ fn: 'direct' });
+    const neuron = sn.neuron({ fn: 'direct' });
+    const input = sn.neuron({ fn: 'direct' });
     
     neuron.inputs([input]);
     neuron.weights([1]);
@@ -145,8 +145,8 @@ exports['create neuron with direct function'] = function (test) {
 };
 
 exports['create neuron with logistic function'] = function (test) {
-    var neuron = sn.neuron({ fn: 'logistic' });
-    var input = sn.neuron({ fn: 'direct' });
+    const neuron = sn.neuron({ fn: 'logistic' });
+    const input = sn.neuron({ fn: 'direct' });
     
     neuron.inputs([input]);
     neuron.weights([1]);

@@ -14,7 +14,7 @@ exports['create layer with one dimension'] = function (test) {
 exports['get layer neurons having relu'] = function (test) {
     const layer = sn.layer(4);
     
-    for (var k = 0; k < 4; k++) {
+    for (let k = 0; k < 4; k++) {
         const neuron = layer.neuron(k);
         
         test.ok(neuron);
